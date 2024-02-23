@@ -13,7 +13,23 @@
     <button title="This is a tooltip" onclick="console.log(7);">Click me!</button>
 
     <button onclick="console.log(100);">Another Button!</button>
+    <br> <br>
+    <!-- option 1 : directly -->
+    <button onclick="document.body.style.backgroundColor='yellow'">Make yellow</button>
+    <button onclick="makeRed()">Make Red</button>
+    <button id="make-blue">Make Blue</button>
+    <button id="make-purple">Make Purple</button>
     <script src="events.js"></script>
+    <script>
+        // option 3 : 
+        const purpleButton = document.getElementById('make-purple');
+        //    console.log(purpleButton);
+        purpleButton.onclick = function makePurple() {
+            document.body.style.backgroundColor = 'purple';
+        }
+
+
+    </script>
 </body>
 
 </html>
