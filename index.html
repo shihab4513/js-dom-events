@@ -19,14 +19,34 @@
     <button onclick="makeRed()">Make Red</button>
     <button id="make-blue">Make Blue</button>
     <button id="make-purple">Make Purple</button>
+    <!-- option 4 -->
+    <button id="make-pink">Make Pink</button>
+    <!--  -->
+    <button id="make-green">Make Green</button>
+
+    <button id="make-golden">Make Golden Road</button>
     <script src="events.js"></script>
     <script>
-        // option 3 : 
+        // option 3 :We will use this some time 
         const purpleButton = document.getElementById('make-purple');
         //    console.log(purpleButton);
         purpleButton.onclick = function makePurple() {
             document.body.style.backgroundColor = 'purple';
         }
+
+        const pinkButton = document.getElementById('make-pink');
+        // console.log(pinkButton);
+        pinkButton.addEventListener('click', makePink);
+
+
+        function makePink() {
+            document.body.style.backgroundColor = 'pink';
+        }
+
+
+
+
+
 
 
     </script>
