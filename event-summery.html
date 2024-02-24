@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Summery</title>
+</head>
+
+<body>
+    <h1>Final DOM Event Handlers</h1>
+    <!-- Text filed theke lekha read kore display kore -->
+    <h3 id="handler-status">Default Text</h3>
+    <p id="input-text-display">Default input text</p>
+    <input id="input-field" type="text">
+    <button id="button-update">Updated</button>
+    <br>
+    <br>
+    <button onclick="handleOneClick()">Handle event by Add onclick function</button>
+    <!-- option 2 -->
+    <button id="event-listener">Handle event by addEventListener</button>
+
+
+    <script>
+        function handleOneClick() {
+            // console.log('button clicked');
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'Handled by function attached on onclick attribute'
+
+        }
+        // option 2 in script part
+        document.getElementById('event-listener').addEventListener('click', function () {
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = "Text updated by add Event listener button";
+        })
+        // Text filed theke lekha read kore onno jaigai display kora
+        document.getElementById('button-update').addEventListener('click', function () {
+            const inputField = document.getElementById('input-field');
+            const inputText = inputField.value;
+            const inputTextDisplay = document.getElementById('input-text-display');
+            inputTextDisplay.innerText = inputText;
+
+            inputField.value = '';
+        })
+    </script>
+
+
+
+
+
+</body>
+
+</html>
