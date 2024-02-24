@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+
+<body>
+    <h1>Explore Event Delegate</h1>
+
+    <section>
+        <ul id="list-container">
+            <li class="item">1.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa, optio.</li>
+            <li class="item">2.Facilis minima a doloribus repellendus eum. Tempora illo nostrum iure.</li>
+            <li class="item">3.Vitae omnis fuga sequi minima illo laborum maiores voluptatibus praesentium.</li>
+            <li class="item">4.Neque nisi magnam rem perferendis temporibus? Impedit quaerat harum praesentium.</li>
+            <li class="item">5.Neque delectus modi facere et ducimus esse rem saepe quos?</li>
+            <li class="item">6.Culpa delectus ratione et aliquid, aliquam voluptatem assumenda velit omnis.</li>
+        </ul>
+        <button id="btn-add-item">Add Item</button>
+    </section>
+
+    <script>
+        // items variable e sob same class name er element gula array like object er moto thakbe.
+        // e niyom e prottekta array like object create korle as per following condition each item will be printed
+        const items = document.getElementsByClassName('item');
+        // console.log(items);
+        // for (const item of items) {
+        //     // console.log(item);
+        //     item.addEventListener('click',function(){
+        //         // console.log(item);
+        //         // We can also use 'event.target' instead of item. still it will do the same thing
+        //         // console.log(event.target);
+        //         // As per below code it will print parentNode . In this case it will print 'ul' . Because parent of li is ul.
+        //         // console.log(event.target.parentNode);
+        //         // We can also remove specific child of parent in this case we will remove whichever li we click!
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+
+        
+
+        document.getElementById('list-container').addEventListener('click', function (event) {
+            event.target.parentNode.removeChild(event.target);
+        })
+
+        document.getElementById('btn-add-item').addEventListener('click', function () {
+            const listContainer = document.getElementById('list-container');
+            const li = document.createElement('li');
+            li.innerText = 'Brand New Item added';
+            li.classList.add('item');
+            listContainer.appendChild(li);
+        });
+    </script>
+</body>
+
+</html>
