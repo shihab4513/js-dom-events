@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+    <style>
+        ul {
+            border: 2px solid tomato;
+        }
+
+        body {
+            border: 2px solid green;
+        }
+
+        section {
+            border: 2px solid blue;
+        }
+
+        #item-2 {
+            border: 2px solid purple;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <h1>Exploring Event Bubble</h1>
+
+    <section id="list-container">
+        <!-- ul>li#item-$*6>lorem20 -->
+        <ul id="list-ul">
+            <li id="item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores doloremque quidem,
+                laudantium eaque odit perferendis quisquam sunt velit exercitationem ut!</li>
+            <li id="item-2">Perferendis expedita excepturi at in iste debitis laboriosam quo officia modi eveniet. Nisi,
+                saepe deleniti exercitationem odit rerum ab ullam.</li>
+            <li id="item-3">Fuga quibusdam voluptates aperiam omnis corrupti modi placeat libero quos, illum ratione
+                reprehenderit temporibus quia cumque sequi autem explicabo. Iste!</li>
+            <li id="item-4">Ab nobis tempore quisquam quis ullam magnam repellat porro ipsum! Quisquam enim consequatur
+                repudiandae. Natus odit aut fugiat perspiciatis aliquid.</li>
+            <li id="item-5">Amet, temporibus eius qui ipsa similique libero recusandae ipsum sint illo iure magni ipsam
+                deserunt dolore atque beatae nam. Quia?</li>
+            <li id="item-6">Nemo, hic molestias sint accusantium laborum tempora fugit, dignissimos sapiente
+                perspiciatis cum fugiat temporibus distinctio enim alias. Ratione, delectus blanditiis!</li>
+        </ul>
+    </section>
+
+
+    <script>
+        // bubble propagation jodi stop korte chai tai tahole anonoymous function er parameter e 'event' likhte hobe.tarpor function er vitor 'event.stopPropagation();' likhte hobe , tahole propagation hobe na  
+        document.getElementById('item-2').addEventListener('click', function (event) {
+            console.log('Item-2 Clicked');
+            // event.stopPropagation();
+            // amra chile multiple same event dite pari.tahole sob event click korar sathe sathe ghotbe . if we want to top that we have to do the following.
+            event.stopImmediatePropagation();
+
+        });
+        // 
+        document.getElementById('item-2').addEventListener('click', function (event) {
+            console.log('Item-2 second Clicked');
+
+        });
+        document.getElementById('item-2').addEventListener('click', function (event) {
+            console.log('Item-2 third Clicked');
+
+        });
+        document.getElementById('item-2').addEventListener('click', function (event) {
+            console.log('Item-2 fourth Clicked');
+
+        });
+
+
+        document.getElementById('list-ul').addEventListener('click', function () {
+            console.log('ul clicked');
+        });
+
+        document.getElementById('list-container').addEventListener('click', function () {
+            console.log('Section container clicked');
+        });
+
+        document.getElementById('body').addEventListener('click', function () {
+            console.log('body of the html clicked');
+        });
+    </script>
+
+</body>
+
+</html>
